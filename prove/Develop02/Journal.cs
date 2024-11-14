@@ -1,6 +1,3 @@
-// Journal.cs
-// Manages a collection of journal entries and handles file operations.
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,58 +15,51 @@ public class Journal
     // Displays all entries in the journal
     public void DisplayAll()
     {
-        if (_entries.Count == 0)
+        foreach (var entry in _entries)
         {
-            Console.WriteLine("No entries to display.");
-        }
-        else
-        {
-            foreach (Entry entry in _entries)
-            {
-                entry.Display();
-            }
+            entry.Display();
+            Console.WriteLine();
         }
     }
 
-    // Saves the journal entries to a file in CSV format with headers and handling of commas and quotes
-    public void SaveToFile(string file)
+    // Saves all entries to a specified file in CSV format
+    public void SaveToFile(string fileName)
     {
-        using (StreamWriter writer = new StreamWriter(file))
+        using (StreamWriter writer = new StreamWriter(fileName))
         {
-            writer.WriteLine("Date,Prompt,Mood,EntryText"); // Header for CSV
-            foreach (Entry entry in _entries)
+            foreach (var entry in _entries)
             {
-                writer.WriteLine($"\"{entry._date}\",\"{entry._promptText}\",\"{entry._mood}\",\"{entry._entryText}\"");
+                // Format: Date,Prompt,EntryText,Mood
+                writer.WriteLine($"{entry._date},{entry._promptText},{entry._entryText},{entry._mood}");
             }
         }
-        Console.WriteLine($"Journal saved to {file}");
+        Console.WriteLine($"Journal saved to {fileName}");
     }
 
-    // Loads journal entries from a file
-    public void LoadFromFile(string file)
+    // Loads entries from a specified file in CSV format
+    public void LoadFromFile(string fileName)
     {
-        if (File.Exists(file))
+        _entries.Clear();
+        using (StreamReader reader = new StreamReader(fileName))
         {
-            _entries.Clear();
-            string[] lines = File.ReadAllLines(file);
-            for (int i = 1; i < lines.Length; i++) // Skips the header
+            string line;
+            while ((line = reader.ReadLine()) != null)
             {
-                string[] parts = lines[i].Split(',');
-                if (parts.Length == 4)
+                string[] parts = line.Split(',');
+
+                if (parts.Length == 4)  // Ensure we have all parts (Date, Prompt, EntryText, Mood)
                 {
-                    string date = parts[0].Trim('"');
-                    string prompt = parts[1].Trim('"');
-                    string mood = parts[2].Trim('"');
-                    string entryText = parts[3].Trim('"');
-                    Entry entry = new Entry(date, prompt, entryText, mood);
+                    Entry entry = new Entry
+                    {
+                        _date = parts[0],
+                        _promptText = parts[1],
+                        _entryText = parts[2],
+                        _mood = parts[3]
+                    };
                     _entries.Add(entry);
                 }
             }
-            Console.WriteLine($"Journal loaded from {file}");
         }
-        else
-        {
-            Console.WriteLine("File not found.");
-        }
+        Console.WriteLine($"Journal loaded from {fileName}");
     }
 }
