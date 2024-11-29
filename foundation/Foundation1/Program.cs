@@ -6,9 +6,9 @@ class Program
     static void Main(string[] args)
     {
         // Create videos
-        var video1 = new Video { Title = "C# Tutorial", Author = "Quelitho Gabriel", Length = 600 };
-        var video2 = new Video { Title = "Cooking Tips", Author = "Mallorie Daelle", Length = 900 };
-        var video3 = new Video { Title = "Travel Vlog", Author = "Saint Louis", Length = 1200 };
+        var video1 = new Video { Title = "C# Tutorial", Author = "Quelitho Gabriel", Length = 650 };
+        var video2 = new Video { Title = "Cooking Tips", Author = "Mallorie Daelle", Length = 800 };
+        var video3 = new Video { Title = "Travel Vlog", Author = "Saint Louis", Length = 1150 };
 
         // Add comments
         video1.AddComment(new Comment("Dave", "Great tutorial!"));
