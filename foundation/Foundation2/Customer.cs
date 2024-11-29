@@ -3,8 +3,8 @@ public class Customer
     public string Name { get; set; }
     public Address Address { get; set; }
 
-    public bool LivesInHaiti()
+    public bool LivesInUSA()
     {
-        return Address.IsInHaiti();
+        return Address.IsInUSA();
     }
 }

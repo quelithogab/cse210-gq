@@ -15,10 +15,10 @@ public class Order
         decimal total = 0;
         foreach (var product in Products)
         {
-           
+            total += product.GetTotalCost();
         }
 
-        total += Customer.LivesInHaiti() ? 5 : 35;
+        total += Customer.LivesInUSA() ? 5 : 35;
         return total;
     }
 

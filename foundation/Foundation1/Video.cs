@@ -10,21 +10,21 @@ public class Video
 
     public Video()
     {
-       
+        Comments = new List<Comment>();
     }
 
     public void AddComment(Comment comment)
     {
-        
+        Comments.Add(comment);
     }
 
     public int GetNumberOfComments()
     {
-        
+        return Comments.Count;
     }
 
     public List<Comment> GetComments()
     {
-    
+        return Comments;
     }
 }

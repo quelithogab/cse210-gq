@@ -5,6 +5,7 @@ public class Comment
 
     public Comment(string commenterName, string text)
     {
-        
+        CommenterName = commenterName;
+        Text = text;
     }
 }

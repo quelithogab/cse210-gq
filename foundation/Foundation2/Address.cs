@@ -5,9 +5,9 @@ public class Address
     public string State { get; set; }
     public string Country { get; set; }
 
-    public bool IsInHaiti()
+    public bool IsInUSA()
     {
-        return Country.ToUpper() == "Haiti";
+        return Country.ToUpper() == "USA";
     }
 
     public string GetFullAddress()
