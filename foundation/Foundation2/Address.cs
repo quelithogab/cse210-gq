@@ -7,11 +7,11 @@ public class Address
 
     public bool IsInHaiti()
     {
-        
+        return Country.ToUpper() == "Haiti";
     }
 
     public string GetFullAddress()
     {
-       
+        return $"{Street}\n{City}, {State}\n{Country}";
     }
 }

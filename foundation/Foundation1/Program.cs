@@ -14,6 +14,9 @@ class Program
         video1.AddComment(new Comment("Saint Louis", "Very helpful."));
         
 
+        // Add videos to thr list
+        var videos = new List<Video> { video1 };
+
         //videos and comments
         foreach (var video in videos)
         {

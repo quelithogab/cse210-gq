@@ -5,6 +5,6 @@ public class Customer
 
     public bool LivesInHaiti()
     {
-       
+        return Address.IsInHaiti();
     }
 }

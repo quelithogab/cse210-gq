@@ -7,6 +7,6 @@ public class Product
 
     public decimal GetTotalCost()
     {
-        
+        return Price * Quantity;
     }
 }

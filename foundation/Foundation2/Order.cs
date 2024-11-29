@@ -7,21 +7,33 @@ public class Order
 
     public Order()
     {
-       
+        Products = new List<Product>();
     }
 
     public decimal CalculateTotalCost()
     {
-       
+        decimal total = 0;
+        foreach (var product in Products)
+        {
+           
+        }
+
+        total += Customer.LivesInHaiti() ? 5 : 35;
+        return total;
     }
 
     public string GetPackingLabel()
     {
-        
+        var label = "Packing Label:\n";
+        foreach (var product in Products)
+        {
+            label += $"{product.Name} (ID: {product.ProductID})\n";
+        }
+        return label;
     }
 
     public string GetShippingLabel()
     {
-       
+        return $"Shipping Label:\n{Customer.Name}\n{Customer.Address.GetFullAddress()}";
     }
 }
