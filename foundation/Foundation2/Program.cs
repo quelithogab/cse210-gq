@@ -22,7 +22,7 @@ class Program
         // Create the order
         var order1 = new Order { Customer = customer1 };
         order1.Products.Add(product1);
-        order1.Products.Add(product2);
+    
 
       
         // Display order details
