@@ -1,10 +1,13 @@
 public class Customer
 {
-    public string Name { get; set; }
-    public Address Address { get; set; }
+    private string _name;
+    private Address _address;
+
+    public string Name { get => _name; set => _name = value; }
+    public Address Address { get => _address; set => _address = value; }
 
     public bool LivesInUSA()
     {
-        return Address.IsInUSA();
+        return _address.IsInUSA();
     }
 }

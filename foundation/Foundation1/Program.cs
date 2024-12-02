@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         // Create videos
         var video1 = new Video { Title = "C# Tutorial", Author = "Quelitho Gabriel", Length = 650 };
@@ -17,10 +17,12 @@ class Program
 
         video2.AddComment(new Comment("Tilus", "Love this recipe!"));
         video2.AddComment(new Comment("Mathis", "Cannot wait to try this out."));
+        video2.AddComment(new Comment("Justine", "I will try it as soon as possible."));
 
         video3.AddComment(new Comment("Peter", "Great places!"));
         video3.AddComment(new Comment("John", "Thank you for the tips."));
         video3.AddComment(new Comment("Brutus", "Wow, so beautiful!"));
+
 
         // Add videos to a list
         var videos = new List<Video> { video1, video2, video3 };
