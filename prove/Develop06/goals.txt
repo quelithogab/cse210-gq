@@ -1,0 +1,5 @@
+0
+1
+SimpleGoal:walk,walk 10minutes each day,50,True
+EternalGoal:scriptures,read the scriptures at least 15minutes each day,100
+ChecklistGoal:temple,go to the temple 3 time in the month,200,500,50,1
