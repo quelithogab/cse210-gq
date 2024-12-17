@@ -7,6 +7,7 @@ class Program
     {
         Console.WriteLine();
         Console.WriteLine("Local fitness center tracker exercise");
+        
         List<Activity> activities = new List<Activity>
         {
             new Running(new DateTime(2024, 12, 16), 40, 5.7),
